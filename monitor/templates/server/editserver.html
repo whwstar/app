@@ -1,0 +1,24 @@
+{% extends "common/base.html" %}<!--继承基础模板-->
+{% from 'bootstrap/form.html' import render_form %}
+{% block content %}
+<aside class="right-side">
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+
+            <div class="col-md-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        更新服务信息
+                    </header>
+                    <div class="panel-body table-responsive">
+                        {{ render_form(form) }}
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+</aside>
+{% endblock %}

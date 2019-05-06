@@ -1,0 +1,31 @@
+<html>
+    <head>
+      {% if title %}
+      <title>{{ title }} - 告警系统</title>
+      {% else %}
+      <title>告警系统</title>
+      {% endif %}
+    </head>
+    <body>
+        <div>
+            告警系统:
+            <a href="{{ url_for('auth.index') }}">主页</a>
+            <a href="{{ url_for('auth.login') }}">登陆</a>
+            <a href="{{ url_for('auth.register') }}">注册</a>
+            <a href="{{ url_for('server.serverlist') }}">服务状态</a>
+            <a href="{{ url_for('server.alarmlist') }}">服务告警信息</a>
+        </div>
+        <hr>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </body>
+</html>
+

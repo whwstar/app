@@ -1,0 +1,14 @@
+.error {
+    color: red;
+}
+
+.success {
+    color: green;
+
+.login {
+    color: white;
+    height: 38px;
+    width: 300px;
+    background-color: #2b669a;
+}
+

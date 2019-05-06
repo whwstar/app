@@ -1,0 +1,52 @@
+{% extends "common/base.html" %}<!--继承基础模板-->
+{% block content %}<!--自定义模板区域-->
+<aside class="right-side">
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+
+            <div class="col-md-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        告警列表
+                    </header>
+                    <div class="panel-body table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                            <tbody>
+                            <tr>
+                                <th>告警名称</th>
+                                <th>告警信息</th>
+                                <!-- <th>Client</th> -->
+                                <th>产生时间</th>
+                                <!-- <th>Price</th> -->
+                                <th>服务名称</th>
+                                <th>告警数量</th>
+                                <th>主机名称</th>
+                                <th>操作</th>
+                            </tr>
+                           {% for row in list %}
+                            <tr>
+                                <td>{{ row['alert_name'] }}</td>
+                                <td>{{ row['alert_info'] }}</td>
+                                <!-- <td>Steve</td> -->
+                                <td>{{ row['created'] }}</td>
+                                <!-- <td>$1500</td> -->
+                                <td>{{row['servername']}}</td>
+                                <td>{{row['count']}}</td>
+                                <td>{{row['host']}}</td>
+                                <td> <a class="btn btn-danger" href="/server/delalert?id={{ row['id'] }}&servername={{row['servername']}}&host={{row['host']}}&alert_info={{ row['alert_info'] }}">删除</a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            </thead>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+</aside>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends "common/base.html" %}<!--继承基础模板-->
+{% block content %}
+<aside class="right-side">
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+
+            <div class="col-md-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        服务列表
+                    </header>
+                    <div class="panel-body table-responsive">
+                        <form action="addserver" method="post" novalidate>
+                            {{ form.hidden_tag() }}
+                            <p>
+                                {{ form.host.label }}<br>
+                                {{ form.host(size=32) }}
+                                {% for error in form.host.errors %}
+                                <span style="color: red;">[{{error}}]</span>
+                                {% endfor %}
+                            </p>
+                            <p>
+                                {{ form.servername.label }}<br>
+                                {{ form.servername(size=32) }}
+                                {% for error in form.servername.errors %}
+                                <span style="color: red;">[{{error}}]</span>
+                                {% endfor %}
+                            </p>
+                            <p>
+                                {{ form.serverport.label }}<br>
+                                {{ form.serverport(size=32) }}
+                                {% for error in form.serverport.errors %}
+                                <span style="color: red;">[{{error}}]</span>
+                                {% endfor %}
+                            </p>
+                            <p>
+                                {{ form.serveruser.label }}<br>
+                                {{ form.serveruser(size=32) }}
+                                {% for error in form.serveruser.errors %}
+                                <span style="color: red;">[{{error}}]</span>
+                                {% endfor %}
+                            </p>
+
+                            <p>{{ form.submit() }}</p>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+</aside>
+{% endblock %}
